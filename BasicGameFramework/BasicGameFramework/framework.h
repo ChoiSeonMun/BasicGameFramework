@@ -16,4 +16,10 @@
 #include <memory.h>
 #include <tchar.h>
 
+#include <chrono>
+
 #include "Util/Type.h"
+#include "Util/Singleton.h"
+
+using namespace std;
+using namespace std::chrono;

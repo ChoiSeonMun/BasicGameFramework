@@ -15,7 +15,7 @@ public:
 private:
 	ATOM				registerClass();
 
-	void				input();
+	void				processInput();
 	void				update();
 	void				render(HDC hdc);
 private:
@@ -27,7 +27,6 @@ private:
 	HDC					_backDC = {};
 	HBITMAP				_backBitmap = {};
 
-	bool				_isOver = false;
 	Resolution			_res = { 1280, 720 };
 };
 

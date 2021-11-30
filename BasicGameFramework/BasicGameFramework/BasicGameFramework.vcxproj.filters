@@ -11,6 +11,9 @@
     <Filter Include="Util">
       <UniqueIdentifier>{871995f4-ece2-4fed-8c19-8839a15349f1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{38d02944-5528-4a7a-8dea-fcf7312ed48d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BasicGameFramework.h">
@@ -30,6 +33,15 @@
     </ClInclude>
     <ClInclude Include="Game.h" />
     <ClInclude Include="Util\Type.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\Singleton.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\Timer.h">
       <Filter>Util</Filter>
     </ClInclude>
   </ItemGroup>
@@ -54,5 +66,8 @@
       <Filter>Main</Filter>
     </ClCompile>
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Util\Timer.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Game.h"
+#include "Util/Timer.h"
 
 LRESULT Game::WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
@@ -52,6 +53,8 @@ bool Game::Init(HINSTANCE hInst)
 
 INT32 Game::Run()
 {
+    Timer::GetInstance()->Init();
+
     MSG msg;
 
     while (TRUE)
@@ -67,7 +70,14 @@ INT32 Game::Run()
             break;
         }
 
-        input();
+        Timer::GetInstance()->Update();
+
+        if (Timer::GetInstance()->GetDeltaTime() < Timer::MS_PER_UPDATE)
+        {
+            continue;
+        }
+
+        processInput();
         update();
         render(_backDC);
     }
@@ -96,7 +106,7 @@ ATOM Game::registerClass()
     return RegisterClassExW(&wcex);
 }
 
-void Game::input()
+void Game::processInput()
 {
 }
 
