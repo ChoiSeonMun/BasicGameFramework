@@ -44,6 +44,7 @@
     <ClInclude Include="Util\Timer.h">
       <Filter>Util</Filter>
     </ClInclude>
+    <ClInclude Include="Util\Input.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="BasicGameFramework.rc">
@@ -69,5 +70,6 @@
     <ClCompile Include="Util\Timer.cpp">
       <Filter>Util</Filter>
     </ClCompile>
+    <ClCompile Include="Util\Input.cpp" />
   </ItemGroup>
 </Project>
