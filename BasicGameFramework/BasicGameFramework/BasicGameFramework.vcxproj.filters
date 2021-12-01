@@ -14,6 +14,15 @@
     <Filter Include="Scene">
       <UniqueIdentifier>{38d02944-5528-4a7a-8dea-fcf7312ed48d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Object">
+      <UniqueIdentifier>{4bd71a40-9510-4e4d-960a-f025966b2d9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component">
+      <UniqueIdentifier>{86b01481-5e7f-4257-aeff-a455d5021003}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manager">
+      <UniqueIdentifier>{13bde7ea-7b6b-4680-8df1-6edac15f0c18}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BasicGameFramework.h">
@@ -31,12 +40,8 @@
     <ClInclude Include="stdafx.h">
       <Filter>Main</Filter>
     </ClInclude>
-    <ClInclude Include="Game.h" />
     <ClInclude Include="Util\Type.h">
       <Filter>Util</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene.h">
-      <Filter>Scene</Filter>
     </ClInclude>
     <ClInclude Include="Util\Singleton.h">
       <Filter>Util</Filter>
@@ -44,7 +49,30 @@
     <ClInclude Include="Util\Timer.h">
       <Filter>Util</Filter>
     </ClInclude>
-    <ClInclude Include="Util\Input.h" />
+    <ClInclude Include="Scene\Scene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\MainScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\GameObject.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\Input.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\Component.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\SceneManager.h">
+      <Filter>Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\Macro.h">
+      <Filter>Util</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="BasicGameFramework.rc">
@@ -66,10 +94,29 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Main</Filter>
     </ClCompile>
-    <ClCompile Include="Game.cpp" />
     <ClCompile Include="Util\Timer.cpp">
       <Filter>Util</Filter>
     </ClCompile>
-    <ClCompile Include="Util\Input.cpp" />
+    <ClCompile Include="Scene\MainScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\GameObject.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\Input.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\Component.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\Scene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Manager\SceneManager.cpp">
+      <Filter>Manager</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

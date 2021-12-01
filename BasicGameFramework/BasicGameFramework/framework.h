@@ -17,9 +17,14 @@
 #include <tchar.h>
 
 #include <chrono>
+#include <vector>
+#include <algorithm>
+#include <unordered_map>
+#include <string>
 
 #include "Util/Type.h"
 #include "Util/Singleton.h"
+#include "Util/Macro.h"
 
 using namespace std;
 using namespace std::chrono;

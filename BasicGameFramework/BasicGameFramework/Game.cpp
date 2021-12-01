@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "Game.h"
+
 #include "Util/Timer.h"
+#include "Manager/SceneManager.h"
 
 LRESULT Game::WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
@@ -47,6 +49,8 @@ bool Game::Init(HINSTANCE hInst)
     _backDC = CreateCompatibleDC(_hDC);
     _backBitmap = CreateCompatibleBitmap(_hDC, _res.Width, _res.Height);
     SelectObject(_backDC, _backBitmap);
+
+    SceneManager::GetInstance()->Init();
 
     return true;
 }
@@ -108,12 +112,15 @@ ATOM Game::registerClass()
 
 void Game::processInput()
 {
+   
 }
 
 void Game::update()
 {
+    SceneManager::GetInstance()->Update();
 }
 
 void Game::render(HDC hdc)
 {
+    SceneManager::GetInstance()->Render(hdc);
 }
