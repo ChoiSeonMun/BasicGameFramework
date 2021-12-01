@@ -6,11 +6,11 @@ class MainScene :
     public Scene
 {
 public:
+    virtual ~MainScene() noexcept = default;
+
+    virtual void Init() override;
     virtual void Update() override;
-
     virtual void Render(HDC hdc) override;
-
-private:
-    vector<class GameObject*>   _objects;
+    virtual void Release() override;
 };
 

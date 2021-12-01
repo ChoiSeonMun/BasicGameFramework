@@ -34,3 +34,28 @@ void Scene::Release()
 		obj->Release();
 	}
 }
+
+void Scene::AddObject(GameObject* obj)
+{
+	_objects.push_back(obj);
+
+	sort(_objects.begin(), _objects.end(), _sortByZOrder);
+}
+
+void Scene::RemoveObject(GameObject* obj)
+{
+	auto iter = find(_objects.begin(), _objects.end(), obj);
+
+	if (iter == _objects.end())
+	{
+		return;
+	}
+
+	delete *iter;
+
+	_objects.erase(iter);
+}
+
+bool Scene::SortByZOrder::operator()(GameObject* lhs, GameObject* rhs) const
+{
+	return lhs->GetZOrder() < rhs->GetZOrder();}

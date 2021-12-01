@@ -20,6 +20,10 @@ INT32 Component::GetOrder() const noexcept
 	return _order;
 }
 
+void Component::Update()
+{
+}
+
 bool Component::operator<(const Component& other) const noexcept
 {
 	return _order < other._order;

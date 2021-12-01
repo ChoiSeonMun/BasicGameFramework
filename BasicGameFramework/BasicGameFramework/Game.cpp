@@ -18,6 +18,13 @@ LRESULT Game::WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
     return 0;
 }
 
+Game::~Game() noexcept
+{
+    DeleteObject(_backBitmap);
+    DeleteDC(_backDC);
+    ReleaseDC(_hWnd, _hDC);
+}
+
 bool Game::Init(HINSTANCE hInst)
 {
     LoadStringW(hInst, IDS_APP_TITLE, _title, MAX_LOADSTRING);
@@ -63,27 +70,29 @@ INT32 Game::Run()
 
     while (TRUE)
     {
-        while (PeekMessage(&msg, nullptr, NULL, NULL, PM_REMOVE))
+        if (PeekMessage(&msg, nullptr, NULL, NULL, PM_REMOVE))
         {
+            if (msg.message == WM_QUIT)
+            {
+                break;
+            }
+
             TranslateMessage(&msg);
             DispatchMessage(&msg);
         }
-
-        if (msg.message == WM_QUIT)
+        else
         {
-            break;
+            Timer::GetInstance()->Update();
+
+            if (Timer::GetInstance()->GetDeltaTime() < Timer::MS_PER_UPDATE)
+            {
+                continue;
+            }
+
+            processInput();
+            update();
+            render();
         }
-
-        Timer::GetInstance()->Update();
-
-        if (Timer::GetInstance()->GetDeltaTime() < Timer::MS_PER_UPDATE)
-        {
-            continue;
-        }
-
-        processInput();
-        update();
-        render(_backDC);
     }
 
     return static_cast<INT32>(msg.wParam);
@@ -117,10 +126,20 @@ void Game::processInput()
 
 void Game::update()
 {
-    SceneManager::GetInstance()->Update();
+    //SceneManager::GetInstance()->Update();
 }
 
-void Game::render(HDC hdc)
+void Game::render()
 {
-    SceneManager::GetInstance()->Render(hdc);
+    PatBlt(_backDC, 0, 0, _res.Width, _res.Height, WHITENESS);
+
+    INT32 fps = static_cast<INT32>(1000.0f / Timer::GetInstance()->GetDeltaTime());
+    WCHAR str[32];
+    swprintf_s(str, L"FPS : %d", fps);
+    TextOut(_backDC, 500, 500, str, wcslen(str));
+
+    //SceneManager::GetInstance()->Render(hdc);
+
+    BitBlt(_hDC, 0, 0, _res.Width, _res.Height,
+        _backDC, 0, 0, SRCCOPY);
 }

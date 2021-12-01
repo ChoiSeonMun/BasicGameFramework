@@ -142,9 +142,12 @@
   <ItemGroup>
     <ClInclude Include="BasicGameFramework.h" />
     <ClInclude Include="Component\Component.h" />
+    <ClInclude Include="Component\DrawComponent.h" />
+    <ClInclude Include="Component\RectComponent.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Manager\SceneManager.h" />
+    <ClInclude Include="Object\BackGround.h" />
     <ClInclude Include="Object\GameObject.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Scene\MainScene.h" />
@@ -153,6 +156,7 @@
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Util\Input.h" />
     <ClInclude Include="Util\Macro.h" />
+    <ClInclude Include="Util\Pivot.h" />
     <ClInclude Include="Util\Singleton.h" />
     <ClInclude Include="Util\Timer.h" />
     <ClInclude Include="Util\Type.h" />
@@ -160,8 +164,11 @@
   <ItemGroup>
     <ClCompile Include="BasicGameFramework.cpp" />
     <ClCompile Include="Component\Component.cpp" />
+    <ClCompile Include="Component\DrawComponent.cpp" />
+    <ClCompile Include="Component\RectComponent.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Manager\SceneManager.cpp" />
+    <ClCompile Include="Object\BackGround.cpp" />
     <ClCompile Include="Object\GameObject.cpp" />
     <ClCompile Include="Scene\MainScene.cpp" />
     <ClCompile Include="Scene\Scene.cpp" />
@@ -169,6 +176,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Util\Input.cpp" />
+    <ClCompile Include="Util\Pivot.cpp" />
     <ClCompile Include="Util\Timer.cpp" />
   </ItemGroup>
   <ItemGroup>

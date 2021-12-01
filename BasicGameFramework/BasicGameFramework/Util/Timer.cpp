@@ -29,9 +29,23 @@ void Timer::Update()
 {
 	auto current = high_resolution_clock::now();
 
-	duration<double, milli> elapsed = current - _prevTime;
+	duration<float, milli> elapsed = current - _prevTime;
+
+	if (1000.0f / static_cast<float>(_fps) > elapsed.count())
+	{
+		_isElapsed = false;
+
+		return;
+	}
 
 	_deltaTime = elapsed.count();
 
 	_prevTime = current;
+
+	_isElapsed = true;
+}
+
+bool Timer::IsElapsed() const noexcept
+{
+	return _isElapsed;
 }

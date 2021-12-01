@@ -8,13 +8,23 @@ class GameObject;
 class Scene abstract
 {
 public:
-	virtual ~Scene() = default;
+	virtual ~Scene() noexcept = default;
 
-	virtual void Init();
-	virtual void Update();
-	virtual void Render(HDC hdc);
-	virtual void Release();
+	virtual void	Init() abstract;
+	virtual void	Update() abstract;
+	virtual void	Render(HDC hdc) abstract;
+	virtual void	Release() abstract;
+
+	void			AddObject(GameObject* obj);
+	void			RemoveObject(GameObject* obj);
 
 private:
+	class SortByZOrder
+	{
+	public:
+		bool operator()(GameObject* lhs, GameObject* rhs) const;
+	};
+private:
+	SortByZOrder			_sortByZOrder;
 	vector<GameObject*>		_objects;
 };

@@ -13,7 +13,6 @@ public:
 	void		Init();
 	void		Update();
 	void		Render(HDC hdc);
-
 	void		ChangeScene(const string& name);
 private:
 	Scene*							_currentScene = nullptr;

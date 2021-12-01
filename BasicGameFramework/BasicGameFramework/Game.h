@@ -9,6 +9,8 @@ class Game
 	static LRESULT CALLBACK WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
 public:
+	~Game() noexcept;
+
 	bool				Init(HINSTANCE hInst);
 	INT32				Run();
 
@@ -17,7 +19,7 @@ private:
 
 	void				processInput();
 	void				update();
-	void				render(HDC hdc);
+	void				render();
 private:
 	HINSTANCE			_hInst = {};
 	HWND				_hWnd = {};

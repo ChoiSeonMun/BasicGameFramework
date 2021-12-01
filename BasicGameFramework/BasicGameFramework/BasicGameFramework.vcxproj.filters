@@ -73,6 +73,18 @@
     <ClInclude Include="Util\Macro.h">
       <Filter>Util</Filter>
     </ClInclude>
+    <ClInclude Include="Component\DrawComponent.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\RectComponent.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\BackGround.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\Pivot.h">
+      <Filter>Util</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="BasicGameFramework.rc">
@@ -117,6 +129,18 @@
     </ClCompile>
     <ClCompile Include="Manager\SceneManager.cpp">
       <Filter>Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\DrawComponent.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\RectComponent.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\BackGround.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\Pivot.cpp">
+      <Filter>Util</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
