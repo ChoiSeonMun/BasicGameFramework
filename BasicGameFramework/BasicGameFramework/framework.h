@@ -25,6 +25,7 @@
 #include "Util/Type.h"
 #include "Util/Singleton.h"
 #include "Util/Macro.h"
+#include "Util/Input.h"
 
 using namespace std;
 using namespace std::chrono;

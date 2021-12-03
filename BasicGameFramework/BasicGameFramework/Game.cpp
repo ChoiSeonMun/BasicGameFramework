@@ -117,7 +117,7 @@ ATOM Game::registerClass()
 
 void Game::processInput()
 {
-   
+    Input::Update();
 }
 
 void Game::update()
@@ -135,6 +135,17 @@ void Game::render()
     TextOut(_backDC, 1200, 10, str, wcslen(str));
 
     //SceneManager::GetInstance()->Render(hdc);
+
+    WCHAR str2[128] = L"";
+    if (Input::GetKey('W'))
+    {
+        swprintf_s(str2, L"W키 꾹 누름");
+    }
+    else if (Input::GetKeyDown('W'))
+    {
+        swprintf_s(str2, L"W키 눌림");
+    }
+    TextOut(_backDC, 500, 500, str2, wcslen(str2));
 
     BitBlt(_hDC, 0, 0, _res.Width, _res.Height,
         _backDC, 0, 0, SRCCOPY);

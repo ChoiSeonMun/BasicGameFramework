@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Singleton.h"
+#include <Windows.h>
 
 class Input
 {
@@ -8,15 +8,17 @@ public:
 	Input() = delete;
 	~Input() = delete;
 
-	static void Update();
+	static void Update() noexcept;
 
-	static bool GetKey();
-	static bool GetKeyDown();
-	static bool GetKeyUp();
+	static bool GetKey(BYTE vkey) noexcept;
+	static bool GetKeyDown(BYTE vkey) noexcept;
+	static bool GetKeyUp(BYTE vkey) noexcept;
 
 	static bool GetMouseButton();
 	static bool GetMouseButtonDown();
 	static bool GetMouseButtonUp();
 private:
+	static bool _currentKeyStates[256];
+	static bool _prevKeyStates[256];
 };
 
