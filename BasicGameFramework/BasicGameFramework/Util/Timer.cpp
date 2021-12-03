@@ -5,47 +5,44 @@
 using namespace std;
 using namespace std::chrono;
 
+high_resolution_clock::time_point Timer::_prevTime = {};
+float Timer::_deltaTime = 0.0f;
+float Timer::_timeScale = 1.0f;
+
 void Timer::SetTimeScale(float timeScale)
 {
 	_timeScale = timeScale;
 }
 
-float Timer::GetTimeScale() const noexcept
+float Timer::GetTimeScale() noexcept
 {
 	return _timeScale;
 }
 
-float Timer::GetDeltaTime() const noexcept
+float Timer::GetDeltaTime() noexcept
 {
 	return _deltaTime * _timeScale;
 }
 
-void Timer::Init()
+void Timer::Init() noexcept
 {
 	_prevTime = high_resolution_clock::now();
 }
 
-void Timer::Update()
+bool Timer::CanUpdate() noexcept
 {
 	auto current = high_resolution_clock::now();
 
 	duration<float, milli> elapsed = current - _prevTime;
 
-	if (1000.0f / static_cast<float>(_fps) > elapsed.count())
+	if (MS_PER_UPDATE > elapsed.count())
 	{
-		_isElapsed = false;
-
-		return;
+		return false;
 	}
 
 	_deltaTime = elapsed.count();
 
 	_prevTime = current;
 
-	_isElapsed = true;
-}
-
-bool Timer::IsElapsed() const noexcept
-{
-	return _isElapsed;
+	return true;
 }

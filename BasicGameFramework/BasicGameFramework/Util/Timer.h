@@ -1,26 +1,22 @@
 #pragma once
 
-#include "Singleton.h"
-
-class Timer : public Singleton<Timer>
+class Timer
 {
+	static constexpr INT32 FPS = 60;
+	static constexpr float MS_PER_UPDATE = 1000.0f / static_cast<float>(FPS) - 0.1f;
 public:
-	Timer() noexcept = default;
-	virtual ~Timer() noexcept = default;
+	Timer() = delete;
 
-	void			SetTimeScale(float timeScale);
-	float			GetTimeScale() const noexcept;
-	float			GetDeltaTime() const noexcept;
+	static void		SetTimeScale(float timeScale);
+	static float	GetTimeScale() noexcept;
+	static float	GetDeltaTime() noexcept;
 
-	void			Init();
-	void			Update();
+	static void		Init() noexcept;
+	static bool		CanUpdate() noexcept;
 
-	bool			IsElapsed() const noexcept;
 private:
-	high_resolution_clock::time_point	_prevTime = {};
-	float								_deltaTime = 0.0f;
-	float								_timeScale = 1.0f;
-	INT32								_fps = 60;
-	bool								_isElapsed = false;
+	static high_resolution_clock::time_point	_prevTime;
+	static float								_deltaTime;
+	static float								_timeScale;
 };
 

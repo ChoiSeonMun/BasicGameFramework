@@ -64,7 +64,7 @@ bool Game::Init(HINSTANCE hInst)
 
 INT32 Game::Run()
 {
-    Timer::GetInstance()->Init();
+    Timer::Init();
 
     MSG msg;
 
@@ -82,16 +82,12 @@ INT32 Game::Run()
         }
         else
         {
-            Timer::GetInstance()->Update();
-
-            if (Timer::GetInstance()->GetDeltaTime() < Timer::MS_PER_UPDATE)
+            if (Timer::CanUpdate())
             {
-                continue;
+                processInput();
+                update();
+                render();
             }
-
-            processInput();
-            update();
-            render();
         }
     }
 
@@ -133,10 +129,10 @@ void Game::render()
 {
     PatBlt(_backDC, 0, 0, _res.Width, _res.Height, WHITENESS);
 
-    INT32 fps = static_cast<INT32>(1000.0f / Timer::GetInstance()->GetDeltaTime());
+    INT32 fps = static_cast<INT32>(1000.0f / Timer::GetDeltaTime());
     WCHAR str[32];
     swprintf_s(str, L"FPS : %d", fps);
-    TextOut(_backDC, 500, 500, str, wcslen(str));
+    TextOut(_backDC, 1200, 10, str, wcslen(str));
 
     //SceneManager::GetInstance()->Render(hdc);
 
