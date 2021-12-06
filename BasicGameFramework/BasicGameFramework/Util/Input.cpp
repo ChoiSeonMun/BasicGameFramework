@@ -37,7 +37,7 @@ bool Input::GetButton(BYTE vkey) noexcept
 
 bool Input::GetButtonDown(BYTE vkey) noexcept
 {
-	return _currentKeyStates[vkey];
+	return (_currentKeyStates[vkey] && _prevKeyStates[vkey] == false);
 }
 
 bool Input::GetButtonUp(BYTE vkey) noexcept
