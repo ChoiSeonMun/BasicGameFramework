@@ -5,6 +5,8 @@
 class IBehaviour
 {
 public:
+	virtual ~IBehaviour() = 0;
+
 	virtual void		Init() { }
 	virtual void		Update() { }
 	virtual void		PhysicsUpdate() { }
