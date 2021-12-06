@@ -2,9 +2,8 @@
 
 #include <Windows.h>
 
-class IBehaviour
+struct IBehaviour
 {
-public:
 	virtual ~IBehaviour() = 0;
 
 	virtual void		Init() { }
