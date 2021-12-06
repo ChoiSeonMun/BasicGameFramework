@@ -85,6 +85,9 @@
     <ClInclude Include="Util\Pivot.h">
       <Filter>Util</Filter>
     </ClInclude>
+    <ClInclude Include="IBehaviour.h">
+      <Filter>Main</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="BasicGameFramework.rc">

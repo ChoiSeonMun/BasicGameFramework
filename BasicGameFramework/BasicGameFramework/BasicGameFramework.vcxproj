@@ -146,6 +146,7 @@
     <ClInclude Include="Component\RectComponent.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="IBehaviour.h" />
     <ClInclude Include="Manager\SceneManager.h" />
     <ClInclude Include="Object\BackGround.h" />
     <ClInclude Include="Object\GameObject.h" />
