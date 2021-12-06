@@ -8,17 +8,18 @@ public:
 	Input() = delete;
 	~Input() = delete;
 
-	static void Update() noexcept;
+	static void		Init(HWND hWnd) noexcept;
+	static void		Update() noexcept;
 
-	static bool GetKey(BYTE vkey) noexcept;
-	static bool GetKeyDown(BYTE vkey) noexcept;
-	static bool GetKeyUp(BYTE vkey) noexcept;
+	static bool		GetButton(BYTE vkey) noexcept;
+	static bool		GetButtonDown(BYTE vkey) noexcept;
+	static bool		GetButtonUp(BYTE vkey) noexcept;
 
-	static bool GetMouseButton();
-	static bool GetMouseButtonDown();
-	static bool GetMouseButtonUp();
+	static POINT	GetMousePosition() noexcept;
 private:
-	static bool _currentKeyStates[256];
-	static bool _prevKeyStates[256];
+	static bool		_currentKeyStates[256];
+	static bool		_prevKeyStates[256];
+	static POINT	_mousePosition;
+	static HWND		_hWnd;
 };
 

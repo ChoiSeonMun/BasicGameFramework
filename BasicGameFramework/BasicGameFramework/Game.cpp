@@ -57,6 +57,7 @@ bool Game::Init(HINSTANCE hInst)
     _backBitmap = CreateCompatibleBitmap(_hDC, _res.Width, _res.Height);
     SelectObject(_backDC, _backBitmap);
 
+    Input::Init(_hWnd);
     SceneManager::GetInstance()->Init();
 
     return true;
@@ -137,15 +138,27 @@ void Game::render()
     //SceneManager::GetInstance()->Render(hdc);
 
     WCHAR str2[128] = L"";
-    if (Input::GetKey('W'))
+    if (Input::GetButton('W'))
     {
         swprintf_s(str2, L"W키 꾹 누름");
     }
-    else if (Input::GetKeyDown('W'))
+    else if (Input::GetButtonDown('W'))
     {
         swprintf_s(str2, L"W키 눌림");
     }
     TextOut(_backDC, 500, 500, str2, wcslen(str2));
+
+    auto mousePos = Input::GetMousePosition();
+    WCHAR posText[128] = L"";
+    swprintf_s(posText, L"Mouse Position (%d, %d)", mousePos.x, mousePos.y);
+    TextOut(_backDC, 1100, 100, posText, wcslen(posText));
+
+    WCHAR str3[128] = L"";
+    if (Input::GetButton(VK_LBUTTON))
+    {
+        swprintf_s(str3, L"마우스 왼쪽 버튼 꾹 누름");
+    }
+    TextOut(_backDC, 500, 600, str3, wcslen(str3));
 
     BitBlt(_hDC, 0, 0, _res.Width, _res.Height,
         _backDC, 0, 0, SRCCOPY);
