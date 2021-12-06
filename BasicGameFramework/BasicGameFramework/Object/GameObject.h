@@ -13,7 +13,7 @@ class Component;
 class GameObject abstract : IBehaviour
 {
 public:
-	GameObject(const Scene* scene, const Layer* layer, const wstring& tag);
+	GameObject(Scene* scene, Layer* layer, const wstring& tag);
 	virtual ~GameObject() noexcept;
 
 	virtual void	Init() override;
@@ -24,6 +24,20 @@ public:
 
 	void			AddComponent(Component* component);
 	void			RemoveComponent(Component* component);
+	vector<Component*>& GetComponents() noexcept;
+	template <typename T>
+	T*				GetComponent()
+	{
+		static_assert(is_base_of_v<Component, T>, "T for GetComponent() must be component");
+
+		for (Component* comp : _components)
+		{
+			if (dynamic_cast<T*>(comp))
+			{
+				return comp;
+			}
+		}
+	}
 
 	void			SetTag(const wstring& tag);
 	void			SetPosition(POINT pos);
@@ -34,12 +48,12 @@ public:
 	POINT			GetPosition() const noexcept;
 	INT32			GetX() const noexcept;
 	INT32			GetY() const noexcept;
-	const Scene*	GetScene() const noexcept;
-	const Layer*	GetLayer() const noexcept;
+	Scene*			GetScene() noexcept;
+	Layer*			GetLayer() noexcept;
 private:
 	POINT						_position = {};
 	wstring						_tag = L"";
-	const Layer*				_layer = nullptr;
-	const Scene*				_scene = nullptr;
+	Layer*				_layer = nullptr;
+	Scene*				_scene = nullptr;
 	vector<Component*>			_components;
 };

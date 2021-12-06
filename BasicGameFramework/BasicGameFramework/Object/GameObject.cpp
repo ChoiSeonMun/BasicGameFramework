@@ -3,10 +3,10 @@
 
 #include "GameObject.h"
 
-GameObject::GameObject(const Scene* scene, const Layer* layer, const wstring& tag)
+GameObject::GameObject(Scene* scene, Layer* layer, const wstring& tag)
 	:
-	_scene(scene),
-	_layer(layer),
+	_scene{ scene },
+	_layer{ layer },
 	_tag{ tag }
 {
 }
@@ -76,16 +76,7 @@ void GameObject::AddComponent(Component* component)
 
 void GameObject::RemoveComponent(Component* component)
 {
-	auto iter = find(_components.begin(), _components.end(), component);
-
-	if (iter == _components.end())
-	{
-		return;
-	}
-
-	delete *iter;
-
-	_components.erase(iter);
+	remove(_components.begin(), _components.end(), component);
 }
 
 void GameObject::SetTag(const wstring& tag)
@@ -128,12 +119,17 @@ INT32 GameObject::GetY() const noexcept
 	return _position.y;
 }
 
-const Scene* GameObject::GetScene() const noexcept
+Scene* GameObject::GetScene() noexcept
 {
 	return _scene;
 }
 
-const Layer* GameObject::GetLayer() const noexcept
+Layer* GameObject::GetLayer() noexcept
 {
 	return _layer;
+}
+
+vector<Component*>& GameObject::GetComponents() noexcept
+{
+	return _components;
 }

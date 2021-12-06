@@ -14,7 +14,7 @@ void Input::Update() noexcept
 {
 	memcpy(_prevKeyStates, _currentKeyStates, sizeof(_currentKeyStates));
 
-	for (size_t vkey = 0; vkey < 256; ++vkey)
+	for (int vkey = 0; vkey < 256; ++vkey)
 	{
 		if (GetAsyncKeyState(vkey) & 0x8000)
 		{

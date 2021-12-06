@@ -4,7 +4,7 @@
 
 struct IBehaviour
 {
-	virtual ~IBehaviour() = 0;
+	virtual ~IBehaviour() { };
 
 	virtual void		Init() { }
 	virtual void		Update() { }

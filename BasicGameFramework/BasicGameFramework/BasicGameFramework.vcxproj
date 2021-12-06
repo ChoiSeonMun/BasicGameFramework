@@ -141,18 +141,23 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="BasicGameFramework.h" />
-    <ClInclude Include="Component\Component.h" />
-    <ClInclude Include="Component\DrawComponent.h" />
-    <ClInclude Include="Component\RectComponent.h" />
+    <ClInclude Include="Component\Component.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="framework.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="IBehaviour.h" />
     <ClInclude Include="Manager\SceneManager.h" />
-    <ClInclude Include="Object\BackGround.h" />
-    <ClInclude Include="Object\GameObject.h" />
+    <ClInclude Include="Object\GameObject.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="Resource.h" />
-    <ClInclude Include="Scene\MainScene.h" />
-    <ClInclude Include="Scene\Scene.h" />
+    <ClInclude Include="Scene\Layer.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="Scene\Scene.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Util\Input.h" />
@@ -164,15 +169,20 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BasicGameFramework.cpp" />
-    <ClCompile Include="Component\Component.cpp" />
-    <ClCompile Include="Component\DrawComponent.cpp" />
-    <ClCompile Include="Component\RectComponent.cpp" />
+    <ClCompile Include="Component\Component.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Manager\SceneManager.cpp" />
-    <ClCompile Include="Object\BackGround.cpp" />
-    <ClCompile Include="Object\GameObject.cpp" />
-    <ClCompile Include="Scene\MainScene.cpp" />
-    <ClCompile Include="Scene\Scene.cpp" />
+    <ClCompile Include="Object\GameObject.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Scene\Layer.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Scene\Scene.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
     </ClCompile>

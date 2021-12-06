@@ -1,10 +1,11 @@
 #pragma once
 
+#include "../IBehaviour.h"
 #include "../Util/Type.h"
 
 class GameObject;
 
-class Component abstract
+class Component abstract : IBehaviour
 {
 public:
 	Component(GameObject* owner, INT32 order = 100) noexcept;
@@ -12,9 +13,12 @@ public:
 
 	INT32				GetOrder() const noexcept;
 
-	virtual void		Update();
+	virtual void		Init() override;
+	virtual void		Update() override;
+	virtual void		PhysicsUpdate() override;
+	virtual void		Render(HDC hdc) override;
+	virtual void		Release() override;
 
-	bool				operator<(const Component& other) const noexcept;
 protected:
 	GameObject*			_owner = nullptr;
 

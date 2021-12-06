@@ -8,7 +8,7 @@
 class Scene;
 class GameObject;
 
-class Layer : IBehaviour
+class Layer final : IBehaviour
 {
 public:
 	Layer(Scene* scene, const std::wstring& tag, INT32 zOrder);
@@ -25,10 +25,10 @@ public:
 	INT32				GetZOrder() const noexcept;
 
 	void				AddObject(GameObject* obj);
-	void				RemoveObject(const wstring& tag);
+	void				RemoveObject(const std::wstring& tag);
 private:
-	Scene*					_scene;
-	INT32					_zOrder;
-	wstring					_tag;
-	vector<GameObject*>		_objects;
+	Scene*							_scene;
+	INT32							_zOrder;
+	std::wstring					_tag = L"";
+	std::vector<GameObject*>		_objects;
 };

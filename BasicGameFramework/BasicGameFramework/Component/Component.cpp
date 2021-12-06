@@ -20,11 +20,22 @@ INT32 Component::GetOrder() const noexcept
 	return _order;
 }
 
+void Component::Init()
+{
+}
+
 void Component::Update()
 {
 }
 
-bool Component::operator<(const Component& other) const noexcept
+void Component::PhysicsUpdate()
 {
-	return _order < other._order;
+}
+
+void Component::Render(HDC hdc)
+{
+}
+
+void Component::Release()
+{
 }

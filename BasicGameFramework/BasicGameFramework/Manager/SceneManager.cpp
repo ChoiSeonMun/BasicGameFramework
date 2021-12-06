@@ -1,6 +1,5 @@
 #include "../stdafx.h"
 #include "../Scene/Scene.h"
-#include "../Scene/MainScene.h"
 
 #include "SceneManager.h"
 
@@ -17,7 +16,7 @@ SceneManager::~SceneManager() noexcept
 
 void SceneManager::Init()
 {
-	_scenes["MainScene"] = new MainScene();
+	//_scenes["MainScene"] = new MainScene();
 
 	_currentScene = _scenes["MainScene"];
 	_currentScene->Init();
