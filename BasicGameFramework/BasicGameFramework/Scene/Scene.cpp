@@ -1,61 +1,97 @@
-#include "../stdafx.h"
-#include "../Object/GameObject.h"
-
 #include "Scene.h"
+#include "Layer.h"
+
+#include "../stdafx.h"
+
+Scene::Scene(const wstring& name)
+	: _name{ name }
+{
+	AddLayer(new Layer(L"UI", 100));
+}
+
+Scene::~Scene()
+{
+	for (auto& layer : _layers)
+	{
+		delete layer;
+		layer = nullptr;
+	}
+	_layers.clear();
+}
 
 void Scene::Init()
 {
-	for (GameObject* obj : _objects)
+	for (Layer* layer : _layers)
 	{
-		obj->Init();
+		layer->Init();
 	}
 }
 
 void Scene::Update()
 {
-	for (GameObject* obj : _objects)
+	for (Layer* layer : _layers)
 	{
-		obj->Update();
+		layer->Update();
+	}
+}
+
+void Scene::PhysicsUpdate()
+{
+	for (Layer* layer : _layers)
+	{
+		layer->PhysicsUpdate();
 	}
 }
 
 void Scene::Render(HDC hdc)
 {
-	for (GameObject* obj : _objects)
+	for (Layer* layer : _layers)
 	{
-		obj->Render(hdc);
+		layer->Render(hdc);
 	}
 }
 
 void Scene::Release()
 {
-	for (GameObject* obj : _objects)
+	for (Layer* layer : _layers)
 	{
-		obj->Release();
+		layer->Release();
 	}
 }
 
-void Scene::AddObject(GameObject* obj)
+void Scene::AddLayer(Layer* layer)
 {
-	_objects.push_back(obj);
-
-	sort(_objects.begin(), _objects.end(), _sortByZOrder);
+	_layers.push_back(layer);
+	sort(_layers.begin(), _layers.end(),
+		[](const Layer* lhs, const Layer* rhs)
+		{
+			return lhs->GetZOrder() < rhs->GetZOrder();
+		});
 }
 
-void Scene::RemoveObject(GameObject* obj)
+void Scene::RemoveLayer(const std::wstring& tag)
 {
-	auto iter = find(_objects.begin(), _objects.end(), obj);
+	remove_if(_layers.begin(), _layers.end(),
+		[&tag](const Layer* layer)
+		{
+			return layer->GetTag() == tag;
+		});
+}
 
-	if (iter == _objects.end())
+Layer* Scene::FindLayer(const std::wstring& tag)
+{
+	auto iter = find_if(_layers.begin(), _layers.end(),
+		[&tag](const Layer* layer)
+		{
+			return layer->GetTag() == tag;
+		});
+
+	if (iter == _layers.end())
 	{
-		return;
+		return nullptr;
 	}
-
-	delete *iter;
-
-	_objects.erase(iter);
+	else
+	{
+		return *iter;
+	}
 }
-
-bool Scene::SortByZOrder::operator()(GameObject* lhs, GameObject* rhs) const
-{
-	return lhs->GetZOrder() < rhs->GetZOrder();}

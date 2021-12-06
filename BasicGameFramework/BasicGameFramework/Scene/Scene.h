@@ -1,30 +1,28 @@
 #pragma once
 
-#include <Windows.h>
+#include <string>
 #include <vector>
 
-class GameObject;
+#include "../IBehaviour.h"
 
-class Scene abstract
+class Layer;
+
+class Scene abstract : IBehaviour
 {
 public:
-	virtual ~Scene() noexcept = default;
+	Scene(const std::wstring& name);
+	virtual ~Scene();
 
-	virtual void	Init() abstract;
-	virtual void	Update() abstract;
-	virtual void	Render(HDC hdc) abstract;
-	virtual void	Release() abstract;
+	virtual void		Init() override;
+	virtual void		Update() override;
+	virtual void		PhysicsUpdate() override;
+	virtual void		Render(HDC hdc) override;
+	virtual void		Release() override;
 
-	void			AddObject(GameObject* obj);
-	void			RemoveObject(GameObject* obj);
-
+	void				AddLayer(Layer* layer);
+	void				RemoveLayer(const std::wstring& tag);
+	Layer*				FindLayer(const std::wstring& tag);
 private:
-	class SortByZOrder
-	{
-	public:
-		bool operator()(GameObject* lhs, GameObject* rhs) const;
-	};
-private:
-	SortByZOrder			_sortByZOrder;
-	vector<GameObject*>		_objects;
+	std::wstring			_name;
+	std::vector<Layer*>		_layers;
 };
