@@ -7,6 +7,11 @@
 #include "targetver.h"
 
 #define WIN32_LEAN_AND_MEAN             // 거의 사용되지 않는 내용을 Windows 헤더에서 제외합니다.
+
+#ifdef _DEBUG
+#include <crtdbg.h>
+#endif
+
 // Windows 헤더 파일
 #include <windows.h>
 
@@ -21,6 +26,7 @@
 #include <algorithm>
 #include <unordered_map>
 #include <string>
+#include <type_traits>
 
 #include "Util/Type.h"
 #include "Util/Singleton.h"

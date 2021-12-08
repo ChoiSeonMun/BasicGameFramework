@@ -4,6 +4,10 @@
 #include "Util/Timer.h"
 #include "Manager/SceneManager.h"
 
+#include "Scene/TempScene.h"
+
+TempScene gTemp(L"Temp Scene");
+
 LRESULT Game::WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
     switch (msg)
@@ -59,6 +63,7 @@ bool Game::Init(HINSTANCE hInst)
 
     Input::Init(_hWnd);
     //SceneManager::GetInstance()->Init();
+    gTemp.Init();
 
     return true;
 }
@@ -124,18 +129,14 @@ void Game::processInput()
 void Game::update()
 {
     //SceneManager::GetInstance()->Update();
+    gTemp.Update();
 }
 
 void Game::render()
 {
     PatBlt(_backDC, 0, 0, _res.Width, _res.Height, WHITENESS);
     
-    WCHAR str[128] = L"";
-    if (Input::GetButton('X') && Input::GetButton('C'))
-    {
-        swprintf_s(str, L"X와 C 동시에 눌림");
-    }
-    TextOut(_backDC, 500, 500, str, wcslen(str));
+    gTemp.Render(_backDC);
     //SceneManager::GetInstance()->Render(hdc);
 
     BitBlt(_hDC, 0, 0, _res.Width, _res.Height,

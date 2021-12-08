@@ -89,6 +89,11 @@ void GameObject::SetPosition(POINT pos)
 	_position = pos;
 }
 
+void GameObject::SetPosition(LONG x, LONG y) noexcept
+{
+	_position = POINT{ x, y };
+}
+
 wstring GameObject::GetTag() const noexcept
 {
 	return _tag;

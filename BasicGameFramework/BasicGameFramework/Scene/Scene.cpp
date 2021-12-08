@@ -6,7 +6,7 @@
 Scene::Scene(const wstring& name)
 	: _name{ name }
 {
-	AddLayer(new Layer(this, L"UI", 100));
+	Layer* uiLayer = new Layer(this, L"UI", 100);
 }
 
 Scene::~Scene()

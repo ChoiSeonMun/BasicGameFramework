@@ -79,6 +79,21 @@
     <ClInclude Include="Scene\Layer.h">
       <Filter>Scene</Filter>
     </ClInclude>
+    <ClInclude Include="Scene\TempScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Player.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\RenderComponent.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\RectComponent.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\CircleComponent.h">
+      <Filter>Component</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="BasicGameFramework.rc">
@@ -126,6 +141,21 @@
     </ClCompile>
     <ClCompile Include="Scene\Layer.cpp">
       <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\TempScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Player.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\RenderComponent.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\RectComponent.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\CircleComponent.cpp">
+      <Filter>Component</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
