@@ -33,9 +33,9 @@ bool Timer::CanUpdate() noexcept
 {
 	auto current = high_resolution_clock::now();
 
-	duration<float, milli> elapsed = current - _prevTime;
+	duration<float> elapsed = current - _prevTime;
 
-	if (MS_PER_UPDATE > elapsed.count())
+	if (MS_PER_UPDATE * 0.001f > elapsed.count())
 	{
 		return false;
 	}
