@@ -88,9 +88,6 @@
     <ClInclude Include="Object\Player.h">
       <Filter>Object</Filter>
     </ClInclude>
-    <ClInclude Include="Component\RenderComponent.h">
-      <Filter>Component</Filter>
-    </ClInclude>
     <ClInclude Include="Component\RectComponent.h">
       <Filter>Component</Filter>
     </ClInclude>
@@ -156,9 +153,6 @@
     </ClCompile>
     <ClCompile Include="Object\Player.cpp">
       <Filter>Object</Filter>
-    </ClCompile>
-    <ClCompile Include="Component\RenderComponent.cpp">
-      <Filter>Component</Filter>
     </ClCompile>
     <ClCompile Include="Component\RectComponent.cpp">
       <Filter>Component</Filter>

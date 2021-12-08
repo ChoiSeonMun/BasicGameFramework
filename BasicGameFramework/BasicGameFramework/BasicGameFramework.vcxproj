@@ -147,7 +147,6 @@
     </ClInclude>
     <ClInclude Include="Component\Player\PlayerMovement.h" />
     <ClInclude Include="Component\RectComponent.h" />
-    <ClInclude Include="Component\RenderComponent.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="IBehaviour.h" />
@@ -182,7 +181,6 @@
     </ClCompile>
     <ClCompile Include="Component\Player\PlayerMovement.cpp" />
     <ClCompile Include="Component\RectComponent.cpp" />
-    <ClCompile Include="Component\RenderComponent.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Manager\SceneManager.cpp" />
     <ClCompile Include="Object\GameObject.cpp">

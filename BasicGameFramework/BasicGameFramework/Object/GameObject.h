@@ -22,11 +22,11 @@ public:
 	virtual void	Render(HDC hdc) override;
 	virtual void	Release() override;
 
-	void			AddComponent(Component* component);
-	void			RemoveComponent(Component* component);
-	std::vector<Component*>& GetComponents() noexcept;
+	void						AddComponent(Component* component);
+	void						RemoveComponent(Component* component);
+	std::vector<Component*>&	GetComponents() noexcept;
 	template <typename T>
-	T*				GetComponent()
+	T*	GetComponent()
 	{
 		static_assert(std::is_base_of_v<Component, T>, "T for GetComponent() must be component");
 
@@ -34,27 +34,38 @@ public:
 		{
 			if (dynamic_cast<T*>(comp))
 			{
-				return comp;
+				return static_cast<T*>(comp);
 			}
 		}
 	}
 
-	void			SetTag(const std::wstring& tag);
-	void			SetPosition(POINT pos);
+	POINT			GetRenderPos() const noexcept;
+
+	void			SetTag(const std::wstring& tag) noexcept;
+	void			SetPosition(POINT pos) noexcept;
 	void			SetPosition(LONG x, LONG y) noexcept;
-	void			SetX(INT32 x);
-	void			SetY(INT32 y);
+	void			SetX(LONG x) noexcept;
+	void			SetY(LONG y) noexcept;
+	void			SetSize(INT32 width, INT32 height) noexcept;
+	void			SetSize(Size size) noexcept;
+	void			SetPivot(Pivot pivot) noexcept;
 
 	std::wstring	GetTag() const noexcept;
 	POINT			GetPosition() const noexcept;
-	INT32			GetX() const noexcept;
-	INT32			GetY() const noexcept;
+	LONG			GetX() const noexcept;
+	LONG			GetY() const noexcept;
+	Size			GetSize() const noexcept;
+	INT32			GetWidth() const noexcept;
+	INT32			GetHeight() const noexcept;
+	Pivot			GetPivot() const noexcept;
 	Scene*			GetScene() noexcept;
 	Layer*			GetLayer() noexcept;
 private:
 	POINT						_position = {};
-	std::wstring				_tag = L"";
+	Size						_size = {};
+	Pivot						_pivot = Pivot::Bottom;
 	Layer*						_layer = nullptr;
 	Scene*						_scene = nullptr;
+	std::wstring				_tag = L"";
 	std::vector<Component*>		_components;
 };

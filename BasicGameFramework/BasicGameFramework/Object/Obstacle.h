@@ -2,7 +2,7 @@
 
 #include "GameObject.h"
 
-class Obstacle : public GameObject
+class Obstacle final : public GameObject
 {
 public:
 	using GameObject::GameObject;

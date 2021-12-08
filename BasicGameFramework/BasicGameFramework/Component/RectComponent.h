@@ -2,15 +2,15 @@
 
 #include <Windows.h>
 
-#include "RenderComponent.h"
+#include "Component.h"
 
-class RectComponent : public RenderComponent
+class RectComponent : public Component
 {
 public:
-	using RenderComponent::RenderComponent;
+	using Component::Component;
 	virtual ~RectComponent() noexcept = default;
 
-	virtual void Render(HDC hdc) override;
+	virtual void	Render(HDC hdc) override;
 
 	void			SetPen(COLORREF color) noexcept;
 	void			SetBrush(COLORREF color) noexcept;

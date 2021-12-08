@@ -19,6 +19,7 @@ private:
 
 	void				processInput();
 	void				update();
+	void				physicsUpdate();
 	void				render();
 private:
 	HINSTANCE			_hInst = {};

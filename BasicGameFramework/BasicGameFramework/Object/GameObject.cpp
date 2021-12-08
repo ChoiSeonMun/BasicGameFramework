@@ -81,12 +81,19 @@ void GameObject::RemoveComponent(Component* component)
 	remove(_components.begin(), _components.end(), component);
 }
 
-void GameObject::SetTag(const wstring& tag)
+POINT GameObject::GetRenderPos() const noexcept
+{
+	POINT temp = { _size.Width * _pivot.X, _size.Height * _pivot.Y };
+
+	return POINT{ _position.x - temp.x, _position.y - temp.y };
+}
+
+void GameObject::SetTag(const wstring& tag) noexcept
 {
 	_tag = tag;
 }
 
-void GameObject::SetPosition(POINT pos)
+void GameObject::SetPosition(POINT pos) noexcept
 {
 	_position = pos;
 }
@@ -106,24 +113,59 @@ POINT GameObject::GetPosition() const noexcept
 	return _position;
 }
 
-void GameObject::SetX(INT32 x)
+void GameObject::SetX(LONG x) noexcept
 {
 	_position.x = x;
 }
 
-INT32 GameObject::GetX() const noexcept
+LONG GameObject::GetX() const noexcept
 {
 	return _position.x;
 }
 
-void GameObject::SetY(INT32 y)
+void GameObject::SetY(LONG y) noexcept
 {
 	_position.y = y;
 }
 
-INT32 GameObject::GetY() const noexcept
+void GameObject::SetSize(INT32 width, INT32 height) noexcept
+{
+	_size = Size{ width, height };
+}
+
+void GameObject::SetSize(Size size) noexcept
+{
+	_size = size;
+}
+
+void GameObject::SetPivot(Pivot pivot) noexcept
+{
+	_pivot = pivot;
+}
+
+LONG GameObject::GetY() const noexcept
 {
 	return _position.y;
+}
+
+Size GameObject::GetSize() const noexcept
+{
+	return _size;
+}
+
+INT32 GameObject::GetWidth() const noexcept
+{
+	return _size.Width;
+}
+
+INT32 GameObject::GetHeight() const noexcept
+{
+	return _size.Height;
+}
+
+Pivot GameObject::GetPivot() const noexcept
+{
+	return _pivot;
 }
 
 Scene* GameObject::GetScene() noexcept

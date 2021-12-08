@@ -1,4 +1,5 @@
 #include "PlayerMovement.h"
+#include "../CircleComponent.h"
 
 #include "../../Object/GameObject.h"
 #include "../../Util/Input.h"

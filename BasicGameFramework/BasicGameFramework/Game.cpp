@@ -92,6 +92,7 @@ INT32 Game::Run()
             {
                 processInput();
                 update();
+                physicsUpdate();
                 render();
             }
         }
@@ -130,6 +131,11 @@ void Game::update()
 {
     //SceneManager::GetInstance()->Update();
     gTemp.Update();
+}
+
+void Game::physicsUpdate()
+{
+    gTemp.PhysicsUpdate();
 }
 
 void Game::render()

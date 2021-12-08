@@ -1,12 +1,12 @@
 #pragma once
 
-#include "RenderComponent.h"
+#include "Component.h"
 
-class CircleComponent : public RenderComponent
+class CircleComponent : public Component
 {
 public:
-	using RenderComponent::RenderComponent;
+	using Component::Component;
 	virtual ~CircleComponent() noexcept = default;
 
-	virtual void Render(HDC hdc) override;
+	virtual void	Render(HDC hdc) override;
 };

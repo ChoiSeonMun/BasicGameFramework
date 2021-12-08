@@ -1,8 +1,10 @@
 #include "CircleComponent.h"
+#include "../Object/GameObject.h"
 
 void CircleComponent::Render(HDC hdc)
 {
-	POINT newPos = calcNewPos();
+	POINT pos = _owner->GetRenderPos();
+	Size size = _owner->GetSize();
 
-	Ellipse(hdc, newPos.x, newPos.y, newPos.x + _size.Width, newPos.y + _size.Height);
+	Ellipse(hdc, pos.x, pos.y, pos.x + size.Width, pos.y + size.Height);
 }
