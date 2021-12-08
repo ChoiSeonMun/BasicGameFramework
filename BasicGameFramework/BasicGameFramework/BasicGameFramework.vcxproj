@@ -147,6 +147,7 @@
     </ClInclude>
     <ClInclude Include="Component\Player\PlayerMovement.h" />
     <ClInclude Include="Component\RectComponent.h" />
+    <ClInclude Include="Component\TextComponent.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="IBehaviour.h" />
@@ -156,6 +157,7 @@
     </ClInclude>
     <ClInclude Include="Object\Obstacle.h" />
     <ClInclude Include="Object\Player.h" />
+    <ClInclude Include="Object\Text.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Scene\Layer.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
@@ -164,6 +166,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="Scene\TempScene.h" />
+    <ClInclude Include="Scene\TitleScene.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Util\Input.h" />
@@ -181,6 +184,7 @@
     </ClCompile>
     <ClCompile Include="Component\Player\PlayerMovement.cpp" />
     <ClCompile Include="Component\RectComponent.cpp" />
+    <ClCompile Include="Component\TextComponent.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Manager\SceneManager.cpp" />
     <ClCompile Include="Object\GameObject.cpp">
@@ -188,6 +192,7 @@
     </ClCompile>
     <ClCompile Include="Object\Obstacle.cpp" />
     <ClCompile Include="Object\Player.cpp" />
+    <ClCompile Include="Object\Text.cpp" />
     <ClCompile Include="Scene\Layer.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClCompile>
@@ -195,6 +200,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Scene\TempScene.cpp" />
+    <ClCompile Include="Scene\TitleScene.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
     </ClCompile>

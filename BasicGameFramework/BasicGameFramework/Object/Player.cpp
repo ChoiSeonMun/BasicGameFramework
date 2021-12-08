@@ -13,5 +13,6 @@ void Player::Init()
 	movement->SetSpeed(1.0f);
 
 	CircleComponent* circle = new CircleComponent(this);
-	circle->SetSize(200, 100);
+	
+	SetSize(200, 100);
 }

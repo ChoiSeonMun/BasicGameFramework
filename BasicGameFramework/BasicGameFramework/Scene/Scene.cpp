@@ -3,8 +3,7 @@
 
 #include "../stdafx.h"
 
-Scene::Scene(const wstring& name)
-	: _name{ name }
+Scene::Scene()
 {
 	Layer* uiLayer = new Layer(this, L"UI", 100);
 }

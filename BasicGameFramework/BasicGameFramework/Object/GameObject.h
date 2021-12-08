@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 
+#include "../Util/Type.h"
 #include "../IBehaviour.h"
 
 class Scene;

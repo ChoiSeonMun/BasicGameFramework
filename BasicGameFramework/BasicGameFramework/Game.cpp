@@ -4,10 +4,6 @@
 #include "Util/Timer.h"
 #include "Manager/SceneManager.h"
 
-#include "Scene/TempScene.h"
-
-TempScene gTemp(L"Temp Scene");
-
 LRESULT Game::WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
     switch (msg)
@@ -62,8 +58,7 @@ bool Game::Init(HINSTANCE hInst)
     SelectObject(_backDC, _backBitmap);
 
     Input::Init(_hWnd);
-    //SceneManager::GetInstance()->Init();
-    gTemp.Init();
+    SceneManager::GetInstance()->Init();
 
     return true;
 }
@@ -88,6 +83,11 @@ INT32 Game::Run()
         }
         else
         {
+            if (SceneManager::GetInstance()->IsSetNextScene())
+            {
+                SceneManager::GetInstance()->ChangeScene();
+            }
+
             if (Timer::CanUpdate())
             {
                 processInput();
@@ -129,21 +129,19 @@ void Game::processInput()
 
 void Game::update()
 {
-    //SceneManager::GetInstance()->Update();
-    gTemp.Update();
+    SceneManager::GetInstance()->Update();
 }
 
 void Game::physicsUpdate()
 {
-    gTemp.PhysicsUpdate();
+    SceneManager::GetInstance()->PhysicsUpdate();
 }
 
 void Game::render()
 {
     PatBlt(_backDC, 0, 0, _res.Width, _res.Height, WHITENESS);
     
-    gTemp.Render(_backDC);
-    //SceneManager::GetInstance()->Render(hdc);
+    SceneManager::GetInstance()->Render(_backDC);
 
     BitBlt(_hDC, 0, 0, _res.Width, _res.Height,
         _backDC, 0, 0, SRCCOPY);

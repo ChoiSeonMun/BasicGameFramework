@@ -10,8 +10,8 @@ class Layer;
 class Scene abstract : IBehaviour
 {
 public:
-	Scene(const std::wstring& name);
-	virtual ~Scene();
+	Scene();
+	virtual ~Scene() noexcept;
 
 	virtual void		Init() override;
 	virtual void		Update() override;
@@ -23,6 +23,5 @@ public:
 	void				RemoveLayer(const std::wstring& tag);
 	Layer*				FindLayer(const std::wstring& tag);
 private:
-	std::wstring			_name;
 	std::vector<Layer*>		_layers;
 };
