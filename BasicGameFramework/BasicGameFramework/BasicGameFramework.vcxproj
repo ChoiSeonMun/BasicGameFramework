@@ -145,6 +145,7 @@
     <ClInclude Include="Component\Component.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="Component\Player\PlayerMovement.h" />
     <ClInclude Include="Component\RectComponent.h" />
     <ClInclude Include="Component\RenderComponent.h" />
     <ClInclude Include="framework.h" />
@@ -154,6 +155,7 @@
     <ClInclude Include="Object\GameObject.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="Object\Obstacle.h" />
     <ClInclude Include="Object\Player.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Scene\Layer.h">
@@ -178,6 +180,7 @@
     <ClCompile Include="Component\Component.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="Component\Player\PlayerMovement.cpp" />
     <ClCompile Include="Component\RectComponent.cpp" />
     <ClCompile Include="Component\RenderComponent.cpp" />
     <ClCompile Include="Game.cpp" />
@@ -185,6 +188,7 @@
     <ClCompile Include="Object\GameObject.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="Object\Obstacle.cpp" />
     <ClCompile Include="Object\Player.cpp" />
     <ClCompile Include="Scene\Layer.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>

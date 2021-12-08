@@ -1,5 +1,6 @@
 #include "../stdafx.h"
 #include "../Component/Component.h"
+#include "../Scene/Layer.h"
 
 #include "GameObject.h"
 
@@ -9,6 +10,7 @@ GameObject::GameObject(Scene* scene, Layer* layer, const wstring& tag)
 	_layer{ layer },
 	_tag{ tag }
 {
+	_layer->AddObject(this);
 }
 
 GameObject::~GameObject() noexcept
