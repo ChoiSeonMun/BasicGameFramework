@@ -11,6 +11,9 @@ public:
 	static void		Init(HWND hWnd) noexcept;
 	static void		Update() noexcept;
 
+	static bool		GetAnyButton() noexcept;
+	static bool		GetAnyButtonDown() noexcept;
+
 	static bool		GetButton(BYTE vkey) noexcept;
 	static bool		GetButtonDown(BYTE vkey) noexcept;
 	static bool		GetButtonUp(BYTE vkey) noexcept;

@@ -30,6 +30,32 @@ void Input::Update() noexcept
 	ScreenToClient(_hWnd, &_mousePosition);
 }
 
+bool Input::GetAnyButton() noexcept
+{
+	for (BYTE key = 0; key < 256; ++key)
+	{
+		if (GetButton(key))
+		{
+			return true;
+		}
+	}
+
+	return false;
+}
+
+bool Input::GetAnyButtonDown() noexcept
+{
+	for (BYTE key = 0; key < 256; ++key)
+	{
+		if (GetButtonDown(key))
+		{
+			return true;
+		}
+	}
+
+	return false;
+}
+
 bool Input::GetButton(BYTE vkey) noexcept
 {
 	return (_currentKeyStates[vkey] && _prevKeyStates[vkey]);
